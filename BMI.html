@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="EN-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..//node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="..//node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>BMI Calculator</title>
+    <style media="screen">
+		body{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-family: sans-serif;
+			background-image: linear-gradient(120deg,#4b072c, #762dd4, rgb(3, 100, 92));
+			min-height: 100vh;
+		}
+		div{
+			width: 500px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background-color: #fff;
+			transform: translate(-50%, -50%);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 1px 1px 20px #070707;
+		}
+		h2{
+			font-size: 30px;
+			font-weight: 600;
+		}
+		.text{
+			text-align: left;
+			margin-left: 150px;
+		}
+		#mf{
+			color: #222f3e;
+			color: #222f3e;
+			font-weight: 200;
+			outline: none;
+			border: none;
+			border-bottom: 1px solid #341f97;
+			width: 200px;
+		}
+		#w, #h{
+			color: #222f3e;
+			text-align: left;
+			font-size: 20px;
+			font-weight: 200;
+			outline: none;
+			border: none;
+			background: none;
+			border-bottom: 1px solid #341f97;
+			width: 200px;
+		}
+        #w:focus, #h:focus{
+			border-bottom: 2px solid #390352;
+			width: 300px;
+			transition: 0.5s;
+		}
+		#result{
+			color: #341f97;
+		}
+		#btn{
+			font-family: inherit;
+			margin-top: 10px;
+			border: none;
+			color: #fff;
+			background-image: linear-gradient(120deg,#4b072c, #762dd4, rgb(3, 100, 92));
+			width: 150px;
+			padding: 10px;
+			border-radius: 30px;
+			outline: none;
+			cursor: pointer;
+		}
+		#btn:hover{
+			box-shadow: 1px 1px 10px #341f97;
+		}
+		#info{
+			font-size: 12px;
+			font-family: inherit;
+            margin-left: -10;
+		}
+		#cap{
+			margin-top: 600px;
+			margin-right: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		function BMI() {
+			var h=document.getElementById("h").value;
+			var w=document.getElementById("w").value;
+			var bmi=w/(h/100*h/100);
+			var bmio=(bmi.toFixed(2));
+			
+			document.getElementById("result").innerHTML="Your BMI is " + bmio;
+			
+                if (bmio < 18.5)
+                    document.getElementById("comment").innerHTML = "You are Underweight";
+                else if (bmio >= 18.5 && bmio <= 25)
+                    document.getElementById("comment").innerHTML = "You are Normal";
+                else if (bmio >= 25 && bmio <= 30)
+                    document.getElementById("comment").innerHTML = "You are Obese";
+                else if (bmio > 30)
+                    document.getElementById("comment").innerHTML = "You are Overweight";
+		}
+	</script>
+</head>
+<body>
+    <header>
+        <h1 class="mt-3 text-secondary bg-black p-2">Body Mass Index Calculator</h1>
+    </header>
+    <main>
+        <div> 
+            <h2>BMI Calculator&nbsp;<i class="bi bi-calculator"></i></h2>
+            <p class="text mt-1">Enter Your Height</p>
+            <input type="number" id="h">
+            <p class="text mt-2">Enter Your Weight</p>
+            <input type="number" id="w">
+            <p class="mt-2" id="result"></p>
+			<p class="mt-2" id="comment"></p>
+            <button id="btn" onClick="BMI()">Calculate BMI</button>
+            <p class="mt-3  text text-danger" id="info">Please enter height [cm] and weight [kg]</p>
+        </div>
+    </main>
+    <footer class="text-end align-bottom">
+        <p id="cap">Designed By :- <a href="https://www.linkedin.com/in/sahil-thipe-052133213/?originalSubdomain=in">Sahil Thipe</a></p>
+    </footer>
+    <script src="..//node_modules/jQuery/dist/jquery.js"></script>
+    <script src="..//node_modules/bootstrap/dist/js/"></script>
+</body>
+</html>
